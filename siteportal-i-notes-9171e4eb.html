@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>爱游戏 · 日常查询与延伸阅读</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans', Helvetica, Arial, sans-serif;
+            background: #f7f9fc;
+            color: #1e2a3a;
+            line-height: 1.7;
+        }
+
+        /* 深色头图 */
+        .hero {
+            background: linear-gradient(145deg, #0b1a2b 0%, #1a2f44 100%);
+            color: #eef3f9;
+            padding: 4rem 2rem 3.2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: #3b7fbd;
+            opacity: 0.5;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 400;
+            letter-spacing: 0.02em;
+            margin-bottom: 0.4rem;
+            color: #dce9f5;
+        }
+
+        .hero .sub {
+            font-size: 1.1rem;
+            opacity: 0.8;
+            font-weight: 300;
+            max-width: 600px;
+            margin: 0.6rem auto 1.8rem;
+        }
+
+        .hero .tagline {
+            display: inline-block;
+            background: rgba(59, 127, 189, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            padding: 0.35rem 1.2rem;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            color: #b4d2ed;
+        }
+
+        /* 主要内容区 浅色背景 */
+        .content {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 3rem 2rem 4rem;
+        }
+
+        .section {
+            margin-bottom: 2.8rem;
+        }
+
+        .section h2 {
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: #1a2f44;
+            border-left: 4px solid #3b7fbd;
+            padding-left: 0.9rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .section p {
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0 0.8rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.4rem 1.2rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+            border: 1px solid #eaeef4;
+            transition: box-shadow 0.2s ease;
+        }
+
+        .card:hover {
+            box-shadow: 0 8px 24px rgba(59, 127, 189, 0.08);
+        }
+
+        .card h3 {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: #1e3b52;
+            margin-bottom: 0.6rem;
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            color: #3f566b;
+        }
+
+        .highlight-list {
+            list-style: none;
+            margin: 1.2rem 0 0.6rem;
+        }
+
+        .highlight-list li {
+            position: relative;
+            padding-left: 1.6rem;
+            margin-bottom: 0.65rem;
+            color: #2c3e50;
+        }
+
+        .highlight-list li::before {
+            content: '·';
+            position: absolute;
+            left: 0.3rem;
+            color: #3b7fbd;
+            font-weight: bold;
+            font-size: 1.3rem;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #e2e8f0;
+            padding: 0.9rem 0;
+        }
+
+        .faq-item:last-of-type {
+            border-bottom: 0;
+        }
+
+        .faq-question {
+            font-weight: 500;
+            color: #1a2f44;
+            margin-bottom: 0.2rem;
+        }
+
+        .faq-answer {
+            font-size: 0.95rem;
+            color: #4a5c6e;
+        }
+
+        .tip-box {
+            background: #f0f5fd;
+            border-radius: 12px;
+            padding: 1.3rem 1.5rem;
+            border-left: 4px solid #3b7fbd;
+            margin: 1.8rem 0;
+        }
+
+        .tip-box p {
+            margin-bottom: 0.2rem;
+        }
+
+        a {
+            color: #2b6a9e;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-thickness: 1px;
+            transition: color 0.15s ease;
+        }
+
+        a:hover {
+            color: #1e4d75;
+            text-decoration: underline;
+        }
+
+        .footer-note {
+            border-top: 1px solid #dce3ec;
+            margin-top: 3rem;
+            padding-top: 1.6rem;
+            text-align: center;
+            font-size: 0.85rem;
+            color: #68788c;
+        }
+
+        @media (max-width: 600px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .hero {
+                padding: 3rem 1.2rem 2.4rem;
+            }
+            .content {
+                padding: 2rem 1.2rem 3rem;
+            }
+            .cards {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 深色头图 -->
+    <header class="hero">
+        <span class="tagline">日常查询 · 对照 · 延伸阅读</span>
+        <h1>爱游戏</h1>
+        <p class="sub">从寻找一款老游戏，到梳理一段游戏记忆，这里提供平实的信息聚合。</p>
+    </header>
+
+    <!-- 浅色正文区 -->
+    <main class="content">
+
+        <!-- 摘要 -->
+        <section class="section">
+            <h2>关于这个信息页面</h2>
+            <p>「爱游戏」是一个面向普通游戏爱好者的信息参考站。它不追逐热点，也不做评测排行，而是将散落在各处的游戏基础信息——名称、类型、发行年份、简单背景——整理成可对照、可延伸的条目。适合在查询某个游戏时，顺便看看同类作品或年代脉络。</p>
+            <p>如果你正在写一篇游戏回顾、整理自己的游玩清单，或者只是好奇某个作品的后续系列，不妨将 <a href="https://siteportal-i-game.com.cn">爱游戏</a> 作为一个安静的起始点。这里没有弹窗，没有喧闹的排行榜，只有干净的信息卡片和分类。</p>
+        </section>
+
+        <!-- 亮点 -->
+        <section class="section">
+            <h2>页面特点</h2>
+            <div class="cards">
+                <div class="card">
+                    <h3>平实对照</h3>
+                    <p>同一系列、同类玩法或同一年代的作品被自然地放在一起，方便横向对比，而不是孤立展示。</p>
+                </div>
+                <div class="card">
+                    <h3>轻量延伸</h3>
+                    <p>每个条目附带少量关联推荐，比如“喜欢这款的人也看过……”帮助发现下一个想了解的游戏。</p>
+                </div>
+                <div class="card">
+                    <h3>无干扰布局</h3>
+                    <p>没有自动播放的视频、没有闪烁广告，阅读体验接近一份安静的清单。适合慢慢翻看。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 使用建议 / 场景 -->
+        <section class="section">
+            <h2>可能的使用场景</h2>
+            <ul class="highlight-list">
+                <li>想查某款老游戏的准确英文名或首发平台，又不想被营销文章包围。</li>
+                <li>整理自己的游戏收藏或回忆录时，需要确认年份和开发商等基础信息。</li>
+                <li>写游戏主题的博客、播客大纲或朋友间推荐清单，用作交叉核对的参考源。</li>
+                <li>纯粹想漫无目的地浏览，从一个条目跳到另一个，唤醒记忆中的片段。</li>
+            </ul>
+            <div class="tip-box">
+                <p><strong>一点建议：</strong> 随时打开 <a href="https://siteportal-i-game.com.cn">爱游戏</a> 当作信息锚点，再结合维基、论坛或评测做深度阅读。它更适合作为“第一站”，而不是终点。</p>
+            </div>
+        </section>
+
+        <!-- FAQ 摘要（克制语气） -->
+        <section class="section">
+            <h2>常见问题摘要</h2>
+            <div class="faq-item">
+                <p class="faq-question">页面上的信息有多准确？</p>
+                <p class="faq-answer">所有条目均基于公开可查的发行资料，并经交叉核对。但游戏行业历史悠久，部分冷门作品可能存在记录差异，建议作为参考线索使用。</p>
+            </div>
+            <div class="faq-item">
+                <p class="faq-question">为什么推荐关联游戏？</p>
+                <p class="faq-answer">关联逻辑基于共有属性（同一开发商、同类型、同年代或直接续作），目的是提供延伸线索，并非商业推广。</p>
+            </div>
+            <div class="faq-item">
+                <p class="faq-question">页面会更新吗？</p>
+                <p class="faq-answer">不定期补充新的游戏条目和修正已有内容，但节奏较慢，保持克制与审慎。</p>
+            </div>
+        </section>
+
+        <!-- 说明：可信但克制的访问提示 -->
+        <section class="section" style="margin-bottom: 0;">
+            <h2>使用前的小说明</h2>
+            <p>本页面是一个独立介绍页，与 <a href="https://siteportal-i-game.com.cn">爱游戏</a> 本身并无直接运营关联。访问主站时，你可以自由浏览，无需注册或登录。站内不收集个人浏览数据，也没有强迫关注的入口。</p>
+            <p style="margin-top: 0.5rem;">如果你发现某些信息需要更新，或者希望某个游戏被收录，可以留意主站页面底部的联系渠道（如果有的话），但请理解这是一个维护者精力有限的非商业项目。</p>
+        </section>
+
+        <div class="footer-note">
+            基于公开信息整理 · 仅供个人参考 · 非官方页面
+        </div>
+    </main>
+
+</body>
+</html>
